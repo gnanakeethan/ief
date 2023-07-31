@@ -1,4 +1,6 @@
 export interface IImpactModelInterface {
+    name: string | undefined
+
     modelIdentifier(): string
 
     // params is a reserved keyword in C#. Hence it can not be used.
