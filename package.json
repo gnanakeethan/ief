@@ -26,6 +26,8 @@
     "typescript",
     "ts-sync-request",
     "@cloud-carbon-footprint/core",
+    "@cloud-carbon-footprint/aws",
+    "cubic-spline",
     "@types/node"
   ],
   "jsii": {
@@ -56,6 +58,8 @@
   },
   "dependencies": {
     "@cloud-carbon-footprint/core": "*",
+    "@cloud-carbon-footprint/aws": "*",
+    "cubic-spline": "*",
     "@types/node": "^20.4.2",
     "axios": "^1.4.0",
     "node-fetch": "^3.3.1",

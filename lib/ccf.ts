@@ -7,8 +7,11 @@ export class CloudCarbonFootprint implements IImpactModelInterface {
         this.authParams = authParams;
     }
 
-    async configure(name: string, staticParams: object | undefined): Promise<IImpactModelInterface> {
+    async configure(name: string, staticParams: object): Promise<IImpactModelInterface> {
         console.log(name, staticParams)
+        if ('provider' in staticParams) {
+
+        }
         return this;
     }
 
