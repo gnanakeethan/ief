@@ -7,18 +7,19 @@ export class CloudCarbonFootprint implements IImpactModelInterface {
         this.authParams = authParams;
     }
 
-    calculate(observations: object | object[] | undefined): Promise<object> {
-        console.log(observations);
-        return Promise.resolve({});
-    }
-
     async configure(name: string, staticParams: object | undefined): Promise<IImpactModelInterface> {
         console.log(name, staticParams)
         return this;
     }
 
+    calculate(observations: object | object[] | undefined): Promise<object> {
+        console.log(observations);
+        return Promise.resolve({});
+    }
+
+
     modelIdentifier(): string {
-        return "org.cloudcarbonfootprint.sci";
+        return "ccf.cloud.sci";
     }
 
 }
