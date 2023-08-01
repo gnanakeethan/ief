@@ -27,6 +27,7 @@
     "ts-sync-request",
     "@cloud-carbon-footprint/core",
     "@cloud-carbon-footprint/aws",
+    "typescript-cubic-spline",
     "cubic-spline",
     "@types/node"
   ],
@@ -57,14 +58,15 @@
     }
   },
   "dependencies": {
-    "@cloud-carbon-footprint/core": "*",
     "@cloud-carbon-footprint/aws": "*",
-    "cubic-spline": "*",
+    "@cloud-carbon-footprint/core": "*",
     "@types/node": "^20.4.2",
     "axios": "^1.4.0",
+    "cubic-spline": "*",
     "node-fetch": "^3.3.1",
     "ts-sync-request": "^1.4.1",
-    "typescript": "^5.1.6"
+    "typescript": "^5.1.6",
+    "typescript-cubic-spline": "^1.0.1"
   },
   "devDependencies": {
     "@babel/preset-typescript": "^7.22.5",

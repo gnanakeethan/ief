@@ -3920,6 +3920,11 @@ types-ramda@^0.29.4:
   dependencies:
     ts-toolbelt "^9.6.0"
 
+typescript-cubic-spline@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/typescript-cubic-spline/-/typescript-cubic-spline-1.0.1.tgz#340ef0f4f068fa28be0a0c3b4484e11f55b40610"
+  integrity sha512-h1dvp2YK66CU/p1thrBjQ61/CBSmkZw4Uh28ay8v9UjAA0gQdCQ+Etkie9sdj74WjYuYHEom5qLHjrci1IVMPA==
+
 typescript@^5.1.6, typescript@~5.1.6:
   version "5.1.6"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.1.6.tgz#02f8ac202b6dad2c0dd5e0913745b47a37998274"
