@@ -116,6 +116,27 @@ describe('cloud:initialize with params', () => {
             .resolves
             .toStrictEqual({"e": 0.0002969, "m": 0.0040429984779299846});
     });
+    test('correct instance_type: initialize with params and call usage in IMPL Format', async () => {
+        const impactModel = new BoaviztaCloudImpactModel();
+        await expect(impactModel.configure('test', {
+            instance_type: 't2.micro',
+            location: 'USA',
+            provider: 'aws'
+        })).resolves.toBeInstanceOf(BoaviztaCloudImpactModel);
+        expect(impactModel.name).toBe('test');
+        // configure without static params will cause improper configure error
+        await expect(impactModel.calculate(
+            [
+                {
+                    "datetime": "2021-01-01T00:00:00Z",
+                    "duration": '3600s',
+                    "cpu": 0.5,
+                }
+            ]
+        ))
+            .resolves
+            .toStrictEqual({"e": 0.0002969, "m": 34000});
+    });
     test('wrong instance_type: initialize with params and call usage in IMPL Format throws error', async () => {
         const impactModel = new BoaviztaCloudImpactModel();
         await expect(impactModel.configure('test', {

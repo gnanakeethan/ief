@@ -25,7 +25,7 @@ abstract class BoaviztaImpactModel implements IImpactModelInterface {
     }
 
     //abstract subs to make compatibility with base interface. allows configure to be defined in base class
-    protected abstract captureStaticParams(staticParams: object): any
+    protected abstract captureStaticParams(staticParams: { [key: string]: any }): any
 
     //defines the model identifier
     abstract modelIdentifier(): string
@@ -150,7 +150,7 @@ export class BoaviztaCpuImpactModel extends BoaviztaImpactModel implements IImpa
         return "org.boavizta.cpu.sci"
     }
 
-    protected async captureStaticParams(staticParams: object): Promise<object> {
+    protected async captureStaticParams(staticParams: { [key: string]: any }): Promise<object> {
         if ('verbose' in staticParams) {
             this.verbose = staticParams.verbose as boolean ?? false;
             staticParams.verbose = undefined;
@@ -201,7 +201,7 @@ export class BoaviztaCloudImpactModel extends BoaviztaImpactModel implements IIm
         return "org.boavizta.cloud.sci"
     }
 
-    protected async captureStaticParams(staticParams: object) {
+    protected async captureStaticParams(staticParams: { [key: string]: any }): Promise<object> {
         if ('verbose' in staticParams) {
             this.verbose = staticParams.verbose as boolean ?? false;
             staticParams.verbose = undefined;
