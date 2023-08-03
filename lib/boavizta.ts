@@ -69,6 +69,8 @@ abstract class BoaviztaImpactModel implements IImpactModelInterface {
         // EL = Expected Lifespan, the anticipated time that the equipment will be installed
         // RR = Resources Reserved, the number of resources reserved for use by the software.
         // TR = Total Resources, the total number of resources available.
+        console.log("MEASURED M:", m);
+        console.log("HOURS USED:", hours_use_time);
         m = m * (hours_use_time / (8760.0 * this.expectedLifespan)) * (1.0 / 1.0);
         return {m, e};
     }
@@ -193,6 +195,7 @@ export class BoaviztaCloudImpactModel extends BoaviztaImpactModel implements IIm
     public name: string | undefined;
     public verbose: boolean = false;
     public allocation: string = "TOTAL";
+    public expectedLifespan: number = 4;
 
     modelIdentifier(): string {
         return "org.boavizta.cloud.sci"
@@ -212,6 +215,9 @@ export class BoaviztaCloudImpactModel extends BoaviztaImpactModel implements IIm
                 throw new Error("Improper configure: Invalid allocation parameter. Either TOTAL or LINEAR");
             }
             staticParams.allocation = undefined;
+        }
+        if ('expected_lifespan' in staticParams) {
+            this.expectedLifespan = staticParams.expected_lifespan as number ?? 4;
         }
         // if no valid provider found, throw error
         await this.validateProvider(staticParams);
@@ -282,6 +288,6 @@ export class BoaviztaCloudImpactModel extends BoaviztaImpactModel implements IIm
         const dataCast = this.sharedParams as { [key: string]: any };
         dataCast['usage'] = usageData
         const response = await axios.post(`https://api.boavizta.org/v1/cloud/?verbose=${this.verbose}&allocation=${this.allocation}`, dataCast);
-        return this.formatResponse(response);
+        return this.formatResponse(response, usageData);
     }
 }
